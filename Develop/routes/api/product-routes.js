@@ -8,7 +8,18 @@ router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
 
-  Product.findAll().then((productData) => {
+  Product.findAll({
+    include: [
+      {
+        model: Category,
+        required: true
+      },
+      {
+        model: Tag,
+        required: true
+      }
+    ]
+  }).then((productData) => {
     res.json(productData);
   });
 });
@@ -17,7 +28,20 @@ router.get('/', (req, res) => {
 // find a single product by its `id`
 // be sure to include its associated Category and Tag data
 router.get('/:id', (req, res) => {
-  Product.findByPk(req.params.id).then((productData) => {
+  Product.findByPk(req.params.id, {
+    include: [
+      {
+        model: Category,
+        required: true
+      },
+      {
+        model: Tag,
+        required: true
+      }
+    ]
+  }
+
+  ).then((productData) => {
     res.json(productData);
   });
 });

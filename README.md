@@ -17,7 +17,7 @@ Then edit schema.sql to provide instructions to create a new empty database call
 
 Then I added these table definitions to .js files in the models folder. Defining the model for use by Sequelize allows us to create the tables and populate them with provided sample data by running "npm run seed" script.
 
-Once the database is created and seeded I moved on to creating the Express routes used by the REST api. Starter code lists out the areas that need our attention. I created routes using module syntax for CRUD operations on each table.
+Once the database is created and seeded I moved on to creating the Express routes used by the REST api. Starter code lists out the areas that need our attention. I created routes using Sequelize module syntax for CRUD operations on each table.
 
 Finally, I used Insomnia to test these newly created routes and make sure that the database is being updated by the HTTP reqests as expected.
 
